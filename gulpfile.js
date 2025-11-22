@@ -9,6 +9,7 @@ const htmlmin = require("gulp-htmlmin");
 const browserSync = require("browser-sync").create();
 const clean = require("gulp-clean");
 const fileinclude = require("gulp-file-include");
+const replace = require("gulp-replace");
 
 // --------------------------------------------------
 // PATHS
@@ -20,7 +21,7 @@ const paths = {
   js: "src/js/**/*.js",
   images: "src/img/**/*",
   fonts: "src/fonts/**/*",
-  dist: "dist/"
+  dist: "docs/" // збірка одразу у docs для GitHub Pages
 };
 
 // --------------------------------------------------
@@ -31,17 +32,19 @@ gulp.task("clean", () =>
 );
 
 // --------------------------------------------------
-// HTML (with includes)
+// HTML (includes + fix paths + base)
 // --------------------------------------------------
 gulp.task("html", () => {
   return gulp
     .src(paths.html)
-    .pipe(
-      fileinclude({
-        prefix: "@@",
-        basepath: "@file",
-      })
-    )
+    .pipe(fileinclude({ prefix: "@@", basepath: "@file" }))
+    // універсальна заміна для всіх ../
+    .pipe(replace(/\.\.\/css\//g, "css/"))
+    .pipe(replace(/\.\.\/js\//g, "js/"))
+    .pipe(replace(/\.\.\/img\//g, "img/"))
+    .pipe(replace(/\.\.\/fonts\//g, "fonts/"))
+    // додаємо <base> для GitHub Pages
+    .pipe(replace("<head>", '<head>\n  <base href="/Nutritionist/">'))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(paths.dist))
     .pipe(browserSync.stream());
