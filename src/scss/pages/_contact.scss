@@ -1,0 +1,193 @@
+@use "variables";
+@use "mixins";
+
+.contact {
+  &__contact {
+    padding: 20px;
+    background-color: variables.$green;
+    border: 1px solid variables.$fon-green85;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+
+  &__info {
+    padding: 20px;
+    background-color: variables.$green25;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid variables.$fon-green85;
+    border-radius: 10px;
+    
+  }
+
+  &__img {
+    margin-bottom: 14px;
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+
+    color: #ffffff;
+  }
+
+  &__wraper {
+    padding: 30px;
+    background-color: variables.$green90;
+    border: 1px solid variables.$fon-green85;
+    border-radius: 10px;
+    margin-bottom: 50px;
+     display: flex;
+     flex-direction: column;
+    align-items: stretch; // 🔹 вирівнює по висоті найвищого елемента
+    gap: 40px;
+  }
+
+  &__form {
+    margin-bottom: 40px;
+    flex: 1;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    label {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      color: #4c4c4c;
+      margin-bottom: 8px;
+    }
+    input {
+      background-color: variables.$green80;
+      border: 1px solid variables.$fon-green85;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    textarea {
+      background-color: variables.$green80;
+      border: 1px solid variables.$fon-green85;
+      border-radius: 10px;
+      padding: 20px;
+      height: 135px;
+      margin-bottom: 8px;
+    }
+    small {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      text-align: right;
+      color: #59595a;
+      margin-bottom: 40px;
+    }
+  }
+  input:focus,
+  textarea:focus {
+    outline: none; // прибирає стандартну синю рамку
+    border: 1px solid variables.$green70; // твій власний колір рамки
+    box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.2); // м’яке світіння навколо
+    background-color: variables.$fon-green95; // опціонально — зміна фону
+  }
+
+ &__form-groupa {
+    display: flex;
+    flex-direction: column; // 🔹 мобільна версія — поля одне під одним
+    gap: 20px;
+    margin-bottom: 20px;
+
+    .contact__form-groupname {
+      display: flex;
+      flex-direction: column; // label над input
+    }
+  }
+
+  &__form-btn {
+    padding: 14px 100px;
+    background-color: variables.$green70;
+    border: 1px solid variables.$fon-green85;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  &__soc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  &__soc-img {
+    margin-bottom: 20px;
+    height: 100%;
+    object-fit: cover; // 🔹 щоб картинка не сплющувалась
+    border-radius: 10px;
+      
+  }
+
+  &__soc-icon {
+    display: flex;
+    gap: 14px;
+  }
+
+  &__soc-link {
+    padding: 16px;
+    background-color: variables.$green70;
+    border: 1px solid variables.$fon-green85;
+    border-radius: 10px;
+  }
+}
+@media (min-width: 769px){
+   .contact{
+   &__contact{
+      display: flex;
+      justify-content: space-between;
+       gap: 8px;
+   }
+   &__info{
+      padding: 20px 60px;
+     
+   }
+   }
+}
+@media (min-width: 992px){
+   .contact{
+       &__info{
+      padding: 20px 100px;
+      gap: 8px;
+   }
+      &__form{
+         width: 100%;
+      }
+       .contact__form-groupa {
+    flex-direction: row;
+    gap: 20px;
+
+    .contact__form-groupname {
+      flex: 1;
+    }
+  }
+       &__wraper{
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         align-items: center;
+         gap: 20px;
+       }
+       &__soc-img {
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    
+  }
+    &__soc {
+      align-items: end;
+
+  }
+ 
+   }
+  
+}

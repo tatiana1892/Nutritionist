@@ -1,0 +1,279 @@
+@use "variables";
+@use "mixins";
+.price {
+  .team__top {
+    margin-bottom: 100px;
+  }
+  .pricing__wrapper {
+    margin-top: -50px;
+  }
+  .pricing__toggle {
+    // margin-top: 50px;
+  }
+  .pricing__cart-subtitle {
+    min-height: 72px;
+    margin-bottom: 0;
+  }
+  .pricing__cards {
+    align-items: start; // якщо потрібно вирівняти по верхньому краю
+  }
+  .pricing__cart-text {
+    padding: 20px;
+    margin-bottom: 0;
+  }
+  .pricing__list {
+    background-color: variables.$green90;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  .pricing__list-item {
+    border: 1px solid variables.$green80;
+    border-radius: 10px;
+  }
+  .pricing__green {
+    background-color: variables.$green20;
+    padding: 16px 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    border-radius: 10px;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+}
+.pricing {
+  &__table {
+    width: 100%;
+    padding: 0px;
+    background-color: variables.$fon-green95;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  &__table-head {
+  }
+
+  &__table-title {
+    th {
+      padding: 5px 5px;
+      background-color: variables.$green20;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 150%;
+
+      color: #ffffff;
+    }
+  }
+
+  &__table-body {
+  }
+
+  &__table-name {
+  }
+
+  &__table-info {
+    padding: 30px 0px;
+    text-align: center;
+    border-bottom: 1px solid variables.$green80;
+    border-left: 1px solid variables.$green80;
+    font-weight: 500;
+    font-size: 14px;
+
+    img {
+      display: inline-block;
+      width: 20px;
+    }
+  }
+  .pricing__table-info:first-child {
+    border-left: none;
+    text-align: start;
+  }
+
+  &__accordeon {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__accordeon-wraper {
+    background-color: variables.$fon-green95;
+    border: 1px solid variables.$green90;
+    border-radius: 10px;
+    padding: 30px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  &__accordeon-item {
+    border-bottom: 1px solid variables.$green80;
+    margin-bottom: 30px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    // 🔹 Активний стан — тільки для заголовка
+    &.active {
+      .pricing__accordeon-title {
+        font-weight: 700;
+      }
+
+      .pricing__accordeon-text {
+        max-height: 500px;
+        padding: 20px;
+      }
+    }
+  }
+
+  &__accordeon-header {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: start;
+  }
+
+  &__accordeon-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #262626;
+  }
+
+  &__accordeon-icon {
+   text-align: center;
+   padding-top: 7px;
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+    background-color: variables.$green20;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+
+  &__accordeon-text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    color: variables.$grey;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  &__ask {
+    padding: 50px 20px;
+    background-color: variables.$fon-green95;
+    border: 1px solid variables.$green90;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__ask-title {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 10px;
+    color: #234338;
+  }
+
+  &__ask-subtitle {
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  &__ask-btn {
+    padding: 12px 20px;
+    background-color: variables.$green70;
+    border: 1px solid variables.$green90;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #262626;
+  }
+}
+
+@media (min-width: 768px) {
+  .price {
+    &__cart {
+      display: block;
+      min-height: auto;
+      height: auto;
+    }
+    &__cart-head {
+      min-height: 140px;
+    }
+    .pricing__cart-text {
+      margin-bottom: 0; // або інше значення, яке тобі потрібно
+    }
+  }
+  .pricing {
+    .pricing__cart-text {
+      padding: 20px;
+    }
+    &__list-item {
+      padding: 16px;
+    }
+    &__table {
+      width: 100%;
+      padding: 0px;
+      background-color: variables.$fon-green95;
+      border-radius: 10px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    &__table-head {
+    }
+
+    &__table-title {
+      th {
+        padding: 10px 10px;
+      }
+    }
+
+    &__table-info {
+      padding: 30px 13px;
+      text-align: center;
+
+      font-size: 18px;
+
+      img {
+        display: inline-block;
+        width: 34px;
+      }
+    }
+     &__accordeon {
+    flex-direction: row; // 🔹 десктоп — горизонтально
+      gap: 40px; // 🔹 відстань між акордеоном і блоком Ask
+      align-items: flex-start;
+    gap: 30px;
+
+  }
+ &____accordeon-wraper{
+
+ }
+&__ask{
+   flex-shrink: 0; 
+    max-width: 320px; 
+    width: 100%;
+}
+
+  }
+}

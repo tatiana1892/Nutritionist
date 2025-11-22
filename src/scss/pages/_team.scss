@@ -1,0 +1,155 @@
+@use "variables";
+@use "mixins";
+
+.team {
+  &__top {
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: variables.$fon-green95;
+    border: 1px solid variables.$fon-green85;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+  }
+
+  &__top-baner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  &__top-abstract {
+    display: block;
+  }
+  &__top-svg-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 14px;
+    background: linear-gradient(180deg, rgba(203, 234, 123, 0) 0%, #f6fbe9 100%),
+      url(graphy.png),
+      linear-gradient(180deg, #cbea7b 0%, rgba(203, 234, 123, 0) 100%);
+
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+  }
+  &__top-svg {
+    width: 34px;
+    height: 34px;
+
+    pointer-events: none;
+  }
+
+  &__top-title {
+    @include mixins.title-top;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &__top-subtitle {
+    @include mixins.subtitle;
+    text-align: center;
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: variables.$green;
+    border-radius: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__tab {
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    white-space: nowrap;
+   background-color: transparent;
+    padding: 12px 18px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #ffffff;
+
+    &.active {
+      background-color: variables.$green25;
+      // color: #fff;
+    }
+  }
+
+  &__content {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 50px;
+
+  }
+
+  &__member {
+   display: none;
+      position: relative;
+      margin-bottom: 62px;
+      &.active{
+         display: block;
+      }
+  }
+
+  &__img {
+  }
+
+  &__info {
+   padding: 20px;
+   background-color: #ffffff;
+   border-radius: 10px;
+   position: absolute;
+bottom: -45px;
+  }
+
+  &__name {
+font-weight: 600;
+font-size: 20px;
+line-height: 28px;
+color: variables.$grey;
+
+  }
+
+  &__work {
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+color: variables.$grey30;
+
+
+  }
+}
+
+@media (min-width: 768px) {
+  .team {
+    &__top {
+    }
+
+  }
+}
+@media (min-width: 892px){
+.team{
+      &__content {
+display: flex;
+flex-direction: row;
+gap: 10px;
+
+  }
+}
+}

@@ -1,0 +1,18 @@
+@use 'reset';
+@use 'fonts';
+@use 'variables';
+@use 'mixins';
+@use 'global';
+@use 'header';
+@use 'footer';
+
+
+
+/* page-specific styles */
+@use 'pages/home';
+@use 'pages/about';
+@use 'pages/team';
+@use 'pages/process';
+@use 'pages/pricing';
+@use 'pages/blog';
+@use 'pages/contact';

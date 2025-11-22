@@ -1,0 +1,119 @@
+@use 'variables';
+
+@mixin container { 
+   max-width: $container-width; 
+   margin: 0 auto; 
+   padding: 0 16px; }
+
+   @mixin title-top($mobile: 28px, $tablet: 38px, $desktop: 38px, $weight: 700, $color: #FAFDF2) {
+  font-family: 'Urbanist', sans-serif;
+  font-size: $mobile;
+  font-weight: $weight;
+  line-height: 1.2;
+  color: variables.$green;
+
+
+  @media (min-width: 576px) {
+    font-size: $tablet;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: $desktop;
+  }
+}
+  @mixin subtitle($mobile: 14px, $tablet: 16px, $desktop: 16px, $weight: 500, $color: #FAFDF2) {
+  font-family: 'Urbanist', sans-serif;
+  font-size: $mobile;
+  font-weight: $weight;
+  line-height: 1.2;
+  color: variables.$grey;
+ 
+  
+
+  @media (min-width: 576px) {
+    font-size: $tablet;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: $desktop;
+  }
+}
+  @mixin title($mobile: 18px, $tablet: 20px, $desktop: 24px, $weight: 600, $color: #FAFDF2) {
+  font-family: 'Urbanist', sans-serif;
+  font-size: $mobile;
+  font-weight: $weight;
+  line-height: 1.2;
+  color: variables.$dark-grey;
+  
+
+  @media (min-width: 576px) {
+    font-size: $tablet;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: $desktop;
+  }
+}
+  @mixin text($mobile: 14px, $tablet: 16px, $desktop: 18px, $weight: 500, $color: variables.$dark-grey) {
+  font-family: 'Urbanist', sans-serif;
+  font-size: $mobile;
+  font-weight: $weight;
+  line-height: 150%;
+  color: variables.$dark-grey;
+  
+
+  @media (min-width: 576px) {
+    font-size: $tablet;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: $desktop;
+  }
+}
+@mixin adaptive-button(
+  $bg: variables.$light-green,               // фон кнопки
+  $color: variables.$dark-grey,            // колір тексту
+  $border: none,              // рамка (можна задати як 2px solid #A3D9A5)
+  $width-mobile: 100%,        // ширина кнопки на мобільному (можна auto)
+  $width-tablet: auto,        // ширина на планшеті
+  $padding-mobile: 14px 24px, // внутрішні відступи на мобільному
+  $padding-tablet: 14px 20px, // на планшеті
+  $padding-desktop: 18px 24px,// на десктопі
+  $font-mobile: 14px,         // розмір шрифта на мобільному
+  $font-tablet: 16px,         // на планшеті
+  $font-desktop: 18px         // на десктопі
+) {
+  display: inline-block;
+  background-color: $bg;
+  color: $color;
+  border: $border;
+  border-radius: 8px;         // скруглення кутів
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;  // плавний перехід при hover
+
+  // Стилі для мобільного
+  width: $width-mobile;
+  padding: $padding-mobile;
+  font-size: $font-mobile;
+
+  // Стилі для планшета
+  @media (min-width: 576px) {
+    width: $width-tablet;
+    padding: $padding-tablet;
+    font-size: $font-tablet;
+  }
+
+  // Стилі для десктопа
+  @media (min-width: 1024px) {
+    padding: $padding-desktop;
+    font-size: $font-desktop;
+  }
+
+  // Hover-ефект
+  &:hover {
+    background-color: darken($bg, 10%); // затемнення фону
+    color: lighten($color, 10%);        // освітлення тексту
+  }
+}
