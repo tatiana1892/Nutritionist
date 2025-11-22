@@ -38,17 +38,18 @@ gulp.task("html", () => {
   return gulp
     .src(paths.html)
     .pipe(fileinclude({ prefix: "@@", basepath: "@file" }))
-    // універсальна заміна для всіх ../
-    .pipe(replace(/\.\.\/css\//g, "css/"))
-    .pipe(replace(/\.\.\/js\//g, "js/"))
-    .pipe(replace(/\.\.\/img\//g, "img/"))
-    .pipe(replace(/\.\.\/fonts\//g, "fonts/"))
+    // універсальна заміна для всіх варіантів ../
+    .pipe(replace(/\.\.\/+css\//g, "css/"))
+    .pipe(replace(/\.\.\/+js\//g, "js/"))
+    .pipe(replace(/\.\.\/+img\//g, "img/"))
+    .pipe(replace(/\.\.\/+fonts\//g, "fonts/"))
     // додаємо <base> для GitHub Pages
     .pipe(replace("<head>", '<head>\n  <base href="/Nutritionist/">'))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(paths.dist))
     .pipe(browserSync.stream());
 });
+
 
 // --------------------------------------------------
 // SCSS → CSS
